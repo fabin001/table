@@ -1,0 +1,30 @@
+create table usuario(
+
+	cod serial primary key,
+	nome varchar(100),
+	cpf_cnpj varchar(25),
+	email varchar(200)
+
+);
+
+create table cadastro(
+
+	cod serial primary key,
+	nome varchar(200),
+	valor double precision,
+	descri varchar(250)
+
+);
+
+
+create table venda(
+
+	cod serial primary key,
+	codProd integer,
+	nome varchar(250),
+	valor double precision,
+	descri varchar(250),
+	dtVenda date,
+	constraint cadastro_fk foreign key (codProd) references cadastro(cod)
+
+);
